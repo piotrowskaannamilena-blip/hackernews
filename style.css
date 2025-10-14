@@ -5,9 +5,21 @@
 --font-family-secondary: Arial, sans-serif;
 }
 
+.news-cycle-regular {
+  font-family: "News Cycle", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.news-cycle-bold {
+  font-family: "News Cycle", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 body {
-font-family: Arial, sans-serif;
+font-family: "News Cycle", sans-serif;
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
@@ -17,6 +29,10 @@ background-color: #f5f5f5;
 }
 h2{
     text-align: center;
+    font-family: "Cabin Sketch", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    
 }
 .grid-section{
     display: flex;
