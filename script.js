@@ -1,4 +1,4 @@
-var apiKey = "Your_Api_Key";
+var apiKey = "your_api_key";
 var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
 var newsDiv=document.getElementById("news-container-div");
 
@@ -18,9 +18,9 @@ var newsDiv=document.getElementById("news-container-div");
             <img src="${article.urlToImage}">
             <p>${article.description}</p>
             <p>Published :${article.publishedAt}</p>
-            <a href="${article.url}" >Read More</a>`;
+            <a href="${article.url}" target="_blank" >Read More </a>`;
             
-            
+
             newsDiv.appendChild(articleDiv);
 };
 
