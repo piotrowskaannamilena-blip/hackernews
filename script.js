@@ -20,7 +20,7 @@ function createNewArticleDiv(article) {
     var articleDiv = document.createElement("div");
     articleDiv.innerHTML =
         `<h3>${article.title}</h3>
-            <img style='width:250px' src="${article.urlToImage}">
+            <img src="${article.urlToImage}">
             <p>${article.description}</p>
             <p>Published :${new Date(article.publishedAt).toLocaleString()}</p>
             <a href="${article.url}" target="_blank" >Read More </a>`;
