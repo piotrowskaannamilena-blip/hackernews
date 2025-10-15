@@ -10,10 +10,13 @@ Hacker News is showing news results from more than 70 sources. Uses data from Ne
 - User friendly flex layout and search box, fully accessible
 
 Searching and retrieving live articles from all over the web. It can help you answer questions like:
-- Current affairs
-- Politics
-- New technologies
-- 
+- Business
+- Entertainment
+- Music
+- Health
+- Science
+- Sport
+- Show business
 
 Can be searched for articles with any combination of the following criteria:
 

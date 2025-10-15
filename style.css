@@ -35,3 +35,10 @@ h2{
     padding: 8px 16px;
     font-size: 16px;
   }
+
+  img {
+    display: block;
+    margin-top: 10px;
+    border-radius: 8px;
+    height: 100px;
+  }
