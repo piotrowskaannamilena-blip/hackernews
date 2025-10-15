@@ -1,14 +1,15 @@
-var apiKey = "8404669fbb954e95bd7aace3abb30db0";
+var apiKey = "";
 var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
 var newsDiv=document.getElementById("news-container-div");
 
-  async function getNewsData() {
+
+async function getNewsData(apiKey, userChoose, page) {
     try {
-      let response = await fetch(url);
-      let data = await response.json();
-      return data.articles;
+        let response = await fetch(`https://newsapi.org/v2/everything?q=${userChoose}&pageSize=10&page=${page}&sortBy=popularity&apiKey=${apiKey}`);
+        let data = await response.json();
+        return data.articles;
     } catch (error) {
-      console.log(error);
+        console.log("No result found ", error);
     }
   }
 
@@ -25,9 +26,9 @@ function createNewArticleDiv(article) {
     newsDiv.appendChild(articleDiv);
 };
 
-async function showNews() {
-  let articles = await getNewsData();
-  articles.forEach(article => createNewArticleDiv(article));
+async function showNews(userChoose, page) {
+    let articles = await getNewsData(apiKey, userChoose, page);
+    articles.forEach(article => createNewArticleDiv(article));
 };
 
 
@@ -195,3 +196,36 @@ button.addEventListener("click", async function() {
     // });
 showNews();
 
+async function filterByUser() {
+    if (userChoose == "") {
+        alert("Please enter what you would like to search");
+        return
+    }
+    currentPage = 1
+    newsDiv.innerHTML = "";
+    userChoose = searchInput.value.trim();
+    await showNews(userChoose, currentPage);
+}
+
+function pagination(pageNumber) {
+    newsDiv.innerHTML = "";
+    if (pageNumber == "prev" && currentPage > 1) {
+        currentPage--;
+    } else if (pageNumber == "next") {
+        currentPage++;
+    } else {
+        currentPage = pageNumber;
+    }
+    showNews(userChoose, currentPage);
+}
+
+
+
+
+function defaultNews() {
+    searchInput.value = "";
+    showNews(userChoose, currentPage);
+    searchButton.addEventListener("click", filterByUser);
+}
+
+defaultNews()

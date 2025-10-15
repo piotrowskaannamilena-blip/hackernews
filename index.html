@@ -4,14 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <!-- fonts link News Cycle -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <!-- font link Cabin Sketch -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=News+Cycle:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=News+Cycle:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Hackers News</title>
   </head>
   <body>
@@ -49,6 +55,21 @@
       <section class="news-section">
         <div id="news-container-div"></div>
       </section>
+
+      <ul class="pagination">
+        <li><button onClick="pagination('prev')">&laquo;</button></li>
+        <li><button onClick="pagination(1)">1</button></li>
+        <li><button onClick="pagination(2)">2</button></li>
+        <li><button onClick="pagination(3)">3</button></li>
+        <li><button onClick="pagination(4)">4</button></li>
+        <li><button onClick="pagination(5)">5</button></li>
+        <li><button onClick="pagination(6)">6</button></li>
+        <li><button onClick="pagination(7)">7</button></li>
+        <li><button onClick="pagination(8)">8</button></li>
+        <li><button onClick="pagination(9)">9</button></li>
+        <li><button onClick="pagination(10)">10</button></li>
+        <li><button onClick="pagination('next')">&raquo;</button></li>
+      </ul>
     </main>
 
     <script src="script.js"></script>
