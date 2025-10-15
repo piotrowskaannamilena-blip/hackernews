@@ -37,12 +37,65 @@
         </div>
       </section>
 
+      <div id="categories">
+        <nav id="categoriesData" class="categories">
+          <button
+            class="category-button"
+            id="businessID"
+            data-category="business"
+            onClick="searchByCategory('business')"
+          >
+            Business
+          </button>
+          <button
+            class="category-button"
+            id="entertainmentID"
+            data-category="entertainment"
+            onClick="searchByCategory('entertainment')"
+          >
+            Entertainment
+          </button>
+          <button
+            class="category-button"
+            id="healthID"
+            data-category="health"
+            onClick="searchByCategory('health')"
+          >
+            Health
+          </button>
+          <button
+            class="category-button"
+            id="scienceID"
+            data-category="science"
+            onClick="searchByCategory('science')"
+          >
+            Science
+          </button>
+          <button
+            class="category-button"
+            id="sportID"
+            data-category="sport"
+            onClick="searchByCategory('sport')"
+          >
+            Sport
+          </button>
+          <button
+            class="category-button"
+            id="technologyID"
+            data-category="technology"
+            onClick="searchByCategory('technology')"
+          >
+            Technology
+          </button>
+        </nav>
+      </div>
+
       <section class="news-section">
         <div id="news-container-div"></div>
       </section>
 
       <ul class="pagination">
-        <li><button onClick="pagination('prev')">&laquo;</button></li>
+        <li><button onClick="pagination('0')">&laquo;</button></li>
         <li><button onClick="pagination(1)">1</button></li>
         <li><button onClick="pagination(2)">2</button></li>
         <li><button onClick="pagination(3)">3</button></li>
@@ -53,7 +106,7 @@
         <li><button onClick="pagination(8)">8</button></li>
         <li><button onClick="pagination(9)">9</button></li>
         <li><button onClick="pagination(10)">10</button></li>
-        <li><button onClick="pagination('next')">&raquo;</button></li>
+        <li><button onClick="pagination('11')">&raquo;</button></li>
       </ul>
     </main>
 

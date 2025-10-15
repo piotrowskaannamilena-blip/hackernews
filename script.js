@@ -1,20 +1,25 @@
 var apiKey = "your_api_key";
+var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
+
+
 var newsDiv = document.getElementById("news-container-div");
-var searchInput = document.getElementById("search-input");
 var searchButton = document.getElementById("search-button");
-var currentPage = 1
-var userChoose = 'apple'
+var searchInput = document.getElementById("search-input");
 
+var currentPage = 1;
+var userChoose = 'a';
 
-async function getNewsData(apiKey, userChoose, page) {
+async function getNewsData(url) {
     try {
-        let response = await fetch(`https://newsapi.org/v2/everything?q=${userChoose}&pageSize=10&page=${page}&sortBy=popularity&apiKey=${apiKey}`);
+        newsDiv.innerHTML = "";
+        let response = await fetch(url);
         let data = await response.json();
         return data.articles;
     } catch (error) {
         console.log("No result found ", error);
     }
 }
+
 
 function createNewArticleDiv(article) {
     var articleDiv = document.createElement("div");
@@ -29,10 +34,16 @@ function createNewArticleDiv(article) {
     newsDiv.appendChild(articleDiv);
 };
 
-async function showNews(userChoose, page) {
-    let articles = await getNewsData(apiKey, userChoose, page);
+async function showNews(url) {
+    let articles = await getNewsData(url);
     articles.forEach(article => createNewArticleDiv(article));
 };
+
+
+function searchByCategory(category) {
+    var url = constructTopHeadLineApiURL(category);
+    showNews(url);
+}
 
 
 async function filterByUser() {
@@ -41,29 +52,38 @@ async function filterByUser() {
         return
     }
     currentPage = 1
-    newsDiv.innerHTML = "";
     userChoose = searchInput.value.trim();
-    await showNews(userChoose, currentPage);
+    url = constructEverythingApiURL();
+    await showNews(url);
 }
 
 function pagination(pageNumber) {
-    newsDiv.innerHTML = "";
-    if (pageNumber == "prev" && currentPage > 1) {
-        currentPage--;
-    } else if (pageNumber == "next") {
+
+    if (pageNumber == '0') {
+        if (currentPage > 1) {
+            currentPage--;
+        }
+
+    } else if (pageNumber == "11") {
         currentPage++;
     } else {
         currentPage = pageNumber;
     }
-    showNews(userChoose, currentPage);
+    url = constructEverythingApiURL()
+    showNews(url);
 }
 
+function constructTopHeadLineApiURL(category) {
+    return `https://newsapi.org/v2/top-headlines?q=${userChoose}&category=${category}&pageSize=10&page=${currentPage}&sortBy=popularity&apiKey=${apiKey}`
+}
 
-
+function constructEverythingApiURL() {
+    return `https://newsapi.org/v2/everything?q=${userChoose}&pageSize=10&page=${currentPage}&sortBy=popularity&apiKey=${apiKey}`
+}
 
 function defaultNews() {
-    searchInput.value = "";
-    showNews(userChoose, currentPage);
+    var url = constructEverythingApiURL();
+    showNews(url);
     searchButton.addEventListener("click", filterByUser);
 }
 

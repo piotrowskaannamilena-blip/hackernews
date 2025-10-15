@@ -36,20 +36,26 @@ h2{
     font-size: 16px;
   }
 
-  .pagination {
+  img {
+    display: block;
+    margin-top: 10px;
+    border-radius: 8px;
+    height: 100px;
+  }
+.pagination {
   display: flex;
   justify-content: center;
-  list-style: none; 
+  list-style: none;
   padding: 0px;
 }
 
 .pagination li button {
   background-color: white;
-  display: block;
+  display: block; 
   padding: 8px 12px;
   text-decoration: none;
   border: 1px solid gray;
-  color: black;  
+  color: black;
   margin: 0 4px;
   border-radius: 5px;
 }
