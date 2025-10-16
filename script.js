@@ -15,13 +15,19 @@ async function getNewsData(apiKey, userChoose, page) {
 function createNewArticleDiv(article) {
     var articleDiv = document.createElement("div");
     articleDiv.innerHTML =
-        `<h3>${article.title}</h3>
-            <img src="${article.urlToImage}">
-            <p>${article.description}</p>
-            <p>Published :${new Date(article.publishedAt).toLocaleString()}</p>
-            <a href="${article.url}" target="_blank" >Read More </a>`;
-
-
+        `<section class="newsarticle card mb-3">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <img src="${article.urlToImage}" class="img-fluid rounded-start" alt="news image">
+            </div>
+            <div class="col-md-6">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">${article.title}</h4>
+                        <p class = "card-text">${article.description}</p>
+                        <p>Published :${new Date(article.publishedAt).toLocaleString()}</p>
+                        <a href="${article.url}" target="_blank" >Read More </a>
+            </div>
+        </section>`;
     newsDiv.appendChild(articleDiv);
 };
 
@@ -37,7 +43,7 @@ searchButton.addEventListener("click", async function() {
   var query = searchInput.value;
   if (!query) return;
   url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "<h2>See news about...</h2>" + query;
+  newsDiv.innerHTML = `<h3>${query.toUpperCase()} NEWS</h3>`;
   console.log(query);
   showNews();
 });
@@ -78,7 +84,6 @@ button.addEventListener("click", async function() {
   console.log(query);
   showNews();
 });
-
 
 var button = document.getElementById("scienceID");
 button.addEventListener("click", async function() {
