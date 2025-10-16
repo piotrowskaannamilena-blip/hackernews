@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link
        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
        rel="stylesheet"
@@ -33,43 +34,41 @@
       </div>
       <nav class="navbar pl-3">
           <button
-            class="nav-link p-0 category-button"             id="businessID"
+            class="nav-link p-0 category-button"
+            id="businessID"
             data-category="business"
-            onClick="searchByCategory('business')"
-            >
-            <h5>Business</h5>
+          ><h5>Business</h5>
           </button>
           <button
             class="nav-link p-0 category-button"
             id="entertainmentID"
             data-category="entertainment"
-            onClick="searchByCategory('entertainment')"
-          >
-            <h5>Entertainment</h5></button>
-          <button class="nav-link p-0 category-button"
+          ><h5>Entertainment</h5></button>
+          <button
+            class="nav-link p-0 category-button"
+            id="musicID"
+            data-category="music"
+          ><h5>Music</h5></button>
+          <button
+            class="nav-link p-0 category-button"
             id="healthID"
             data-category="health"
-            onClick="searchByCategory('health')"
-          >
-            <h5>Health</h5></button>
-          <button class="nav-link p-0 category-button"
+          ><h5>Health</h5></button>
+          <button
+            class="nav-link p-0 category-button"
             id="scienceID"
             data-category="science"
-            onClick="searchByCategory('science')"
-          >
-            <h5>Science</h5></button>
-          <button class="nav-link p-0 category-button"
+          ><h5>Science</h5></button>
+          <button
+            class="nav-link p-0 category-button"
             id="sportID"
             data-category="sport"
-            onClick="searchByCategory('sport')"
-          >
-            <h5>Sport</h5></button>
-          <button class="nav-link p-0 category-button"
+          ><h5>Sport</h5></button>
+          <button
+            class="nav-link p-0 category-button"
             id="technologyID"
             data-category="technology"
-            onClick="searchByCategory('technology')"
-          >
-            <h5>Technology</h5></button>
+          ><h5>Technology</h5></button>
       </nav>
     </header>
 
@@ -84,60 +83,6 @@
           </div>
         </div>
       </section>
-<!--
-      <div id="categories">
-        <nav id="categoriesData" class="categories">
-          <button
-            class="category-button"
-            id="businessID"
-            data-category="business"
-            onClick="searchByCategory('business')"
-          >
-            Business
-          </button>
-          <button
-            class="category-button"
-            id="entertainmentID"
-            data-category="entertainment"
-            onClick="searchByCategory('entertainment')"
-          >
-            Entertainment
-          </button>
-          <button
-            class="category-button"
-            id="healthID"
-            data-category="health"
-            onClick="searchByCategory('health')"
-          >
-            Health
-          </button>
-          <button
-            class="category-button"
-            id="scienceID"
-            data-category="science"
-            onClick="searchByCategory('science')"
-          >
-            Science
-          </button>
-          <button
-            class="category-button"
-            id="sportID"
-            data-category="sport"
-            onClick="searchByCategory('sport')"
-          >
-            Sport
-          </button>
-          <button
-            class="category-button"
-            id="technologyID"
-            data-category="technology"
-            onClick="searchByCategory('technology')"
-          >
-            Technology
-          </button>
-        </nav>
-      </div>
-    -->
 
       <section class="news-section">
         <div id="news-container-div"></div>
