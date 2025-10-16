@@ -6,6 +6,7 @@ html {
     --title-font-family: 'Franklin Gothic', sans-serif;
     --bodytext-font-family: 'Lato', sans-serif;
     --logo-font-family: "Cabin Sketch", sans-serif;
+    font-family: var(--bodytext-font-family);
     font-size: max(2vw, 15px);
     background-color: var(--light-color);
     color: var(--dark-color);
@@ -16,7 +17,7 @@ html {
 }
 
 header {
-    background-color: var(--dark-color);
+    background-color: var(--accent-color);
 }
 
 #title h1 {
@@ -26,7 +27,7 @@ header {
 
 nav button {
     border: none;
-    background-color: var(--dark-color);
+    background-color: var(--accent-color);
     color: var(--light-color);
 }
 
@@ -72,7 +73,7 @@ button:hover {
     font-size: 16px;
     background-color: var(--accent-color);
     color: var(--light-color);
-    font-weight: bold
+    font-weight: bold;
   }
 
   img {
@@ -81,6 +82,7 @@ button:hover {
     border-radius: 8px;
     height: 100px;
   }
+
 .pagination {
   display: flex;
   justify-content: center;
