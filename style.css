@@ -1,11 +1,61 @@
+/* TOP-LEVEL INITIALISATION AND GENERAL STYLING */
 
-h2{
-    text-align: center;
-    font-family: "Cabin Sketch", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    
+html {
+    --dark-color: black;
+    --mid-color: gray;
+    --light-color: white;
+    --accent-color: orangered;
+    --title-font-family: 'Franklin Gothic', sans-serif;
+    --bodytext-font-family: 'Lato', sans-serif;
+    --logo-font-family: "Cabin Sketch", sans-serif;
+    font-family: var(--bodytext-font-family);
+    font-size: max(2vw, 15px);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
 }
+
+button:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--title-font-family);
+}
+
+img {
+display: block;
+margin-top: 10px;
+border-radius: 8px;
+height: 100px;
+}
+
+/* HEADER STYLING */
+
+header {
+    background-color: var(--accent-color);
+}
+
+#title h1 {
+    color: var(--light-color);
+    font-family: var(--logo-font-family);
+}
+
+nav button {
+    border: none;
+    background-color: var(--accent-color);
+    color: var(--light-color);
+}
+
+.category-button:hover {
+    text-decoration: underline;
+}
+
+/* SEARCH STYLING */
+
 .search {
     display: flex;
     flex-direction: column;
@@ -34,14 +84,13 @@ h2{
 #search-button {
     padding: 8px 16px;
     font-size: 16px;
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    font-weight: bold;
   }
 
-  img {
-    display: block;
-    margin-top: 10px;
-    border-radius: 8px;
-    height: 100px;
-  }
+/* PAGINATION STYLING */
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -58,4 +107,8 @@ h2{
   color: black;
   margin: 0 4px;
   border-radius: 5px;
+}
+
+.pagination li:hover {
+    text-decoration: underline;
 }
