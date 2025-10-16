@@ -23,7 +23,7 @@ async function getNewsData(apiKey, userChoose, page) {
     } catch (error) {
         console.log("No result found ", error);
     }
-  }
+}
 
 function createNewArticleDiv(article) {
     var articleDiv = document.createElement("div");
@@ -99,7 +99,6 @@ var button = document.getElementById("sportID");
 button.addEventListener("click", async function() { 
   var query = "sport";
   // var query = "sports, football, cricket, tennis, soccer, basketball, baseball, olympics";
-  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
   newsDiv.innerHTML = `<h3>${"sport".toUpperCase()} NEWS</h3>`;
   showNews(query, 1);
 });
