@@ -1,10 +1,13 @@
 var apiKey = "";
 var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
-var newsDiv=document.getElementById("news-container-div");
+//  `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
 
-async function getNewsData(apiKey, userChoose, page) {
+var newsDiv=document.getElementById("news-container-div");
+var userChoose = 'apple';
+
+async function getNewsData() {
     try {
-        let response = await fetch(`https://newsapi.org/v2/everything?q=${userChoose}&pageSize=10&page=${page}&sortBy=popularity&apiKey=${apiKey}`);
+        let response = await fetch(url);
         let data = await response.json();
         return data.articles;
     } catch (error) {
@@ -25,8 +28,8 @@ function createNewArticleDiv(article) {
     newsDiv.appendChild(articleDiv);
 };
 
-async function showNews(userChoose, page) {
-    let articles = await getNewsData(apiKey, userChoose, page);
+async function showNews() {
+    let articles = await getNewsData();
     articles.forEach(article => createNewArticleDiv(article));
 };
 
@@ -37,7 +40,7 @@ searchButton.addEventListener("click", async function() {
   var query = searchInput.value;
   if (!query) return;
   url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "<h2>See news about...</h2>" + query;
+  newsDiv.innerHTML = "<h2>See news about...</h2>" + `<h3> ${query} </h3>` ;
   console.log(query);
   showNews();
 });
@@ -49,6 +52,9 @@ button.addEventListener("click", async function() {
   newsDiv.innerHTML = "";
   console.log(query);
   showNews();
+  .catch((error) => {
+    document.getElementById("businessID").innerHTML = "Failed to load news.";
+    console.error(error);
 });
 
 
@@ -101,21 +107,21 @@ button.addEventListener("click", async function() {
 
 var button = document.getElementById("technologyID");  
 button.addEventListener("click", async function() {
-  var query = "technology, gadgets, apps, software, hardware, AI, robotics";   
+  var query = "AI, robotics";   
   url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
   newsDiv.innerHTML = "";
   console.log(query);
   showNews();
 });
 
-var button = document.getElementById("showBusinessID");
-button.addEventListener("click", async function() {
-  var query = "affair. affairs, show, actor, actress";   
-  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "";
-  console.log(query);
-  showNews();
-});
+// var button = document.getElementById("showBusinessID");
+// button.addEventListener("click", async function() {
+//   var query = "affair. affairs, show, actor, actress";   
+//   url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
+//   newsDiv.innerHTML = "";
+//   console.log(query);
+//   showNews();
+// });
 
 
 // //added code for categories
@@ -221,10 +227,10 @@ function pagination(pageNumber) {
 
 
 
-function defaultNews() {
-    searchInput.value = "";
-    showNews(userChoose, currentPage);
-    searchButton.addEventListener("click", filterByUser);
-}
+// function defaultNews() {
+//     searchInput.value = "";
+//     showNews(userChoose, currentPage);
+//     searchButton.addEventListener("click", filterByUser);
+// }
 
-defaultNews()
+// defaultNews()
