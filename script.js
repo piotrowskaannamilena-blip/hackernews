@@ -1,7 +1,7 @@
+var apiKey = "8404669fbb954e95bd7aace3abb30db0";
 var apiKey = "";
 var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
 var newsDiv=document.getElementById("news-container-div");
-
 
 async function getNewsData(apiKey, userChoose, page) {
     try {
