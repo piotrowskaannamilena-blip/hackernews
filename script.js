@@ -5,6 +5,30 @@ var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${
 var newsDiv=document.getElementById("news-container-div");
 var userChoose = 'apple';
 
+// Trigger a Button Click on Enter
+// Get the input field
+var input = document.getElementById("search-input");
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("search-button").click();
+  }
+});
+
+// Validation For Empty Inputs
+function validateForm() {
+  var x = document.innerHTML["search-input"]["text"].value;
+  if (x == "") {
+    alert("Type to search for something");
+    return false;
+  }
+}
+
 async function getNewsData() {
     try {
         let response = await fetch(url);
@@ -15,6 +39,12 @@ async function getNewsData() {
     }
   }
 
+  //default articles on main page 
+function defaultNews(article) {
+  var article = document.createElement()    
+
+}
+  // Creating new articles
 function createNewArticleDiv(article) {
     var articleDiv = document.createElement("div");
     articleDiv.innerHTML =
@@ -23,8 +53,6 @@ function createNewArticleDiv(article) {
             <p>${article.description}</p>
             <p>Published :${new Date(article.publishedAt).toLocaleString()}</p>
             <a href="${article.url}" target="_blank" >Read More </a>`;
-
-
     newsDiv.appendChild(articleDiv);
 };
 
@@ -40,7 +68,7 @@ searchButton.addEventListener("click", async function() {
   var query = searchInput.value;
   if (!query) return;
   url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "<h2>See news about...</h2>" + `<h3> ${query} </h3>` ;
+  newsDiv.innerHTML = "<h2>See news about...</h2>" + `<h3> ${query.toUpperCase()} </h3>` ;
   console.log(query);
   showNews();
 });
@@ -92,6 +120,7 @@ button.addEventListener("click", async function() {
   showNews();
 });
 
+
 var button = document.getElementById("sportID");    
 button.addEventListener("click", async function() { 
   var query = "sport";
@@ -110,93 +139,6 @@ button.addEventListener("click", async function() {
   console.log(query);
   showNews();
 });
-
-// var button = document.getElementById("showBusinessID");
-// button.addEventListener("click", async function() {
-//   var query = "affair. affairs, show, actor, actress";   
-//   url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-//   newsDiv.innerHTML = "";
-//   console.log(query);
-//   showNews();
-// });
-
-
-// //added code for categories
-// var trump = document.getElementById("categories");  
-// var requestOptions = {
-//   method: 'GET',
-//   redirect: 'follow'
-// };
-//  fetch("https://newsapi.org/v2/top-headlines?q=trump&apiKey=8404669fbb954e95bd7aace3abb30db0", requestOptions)
-//     .then((response) => response.json())
-//     .then((data) => {
-//       trump.innerHTML = "Trump News (" + data.articles.length + " articles)";
-//       data.articles.forEach(article => {
-//         trump.innerHTML += ` <div> <li>
-//           <img src="${article.urlToImage || ''}" alt="Image" />
-//           <li><a href="${article.url}" target="_blank">${article.title}</a></li>
-//           <p>${article.description || ''}</p>
-//         </li> </div>`; ;
-//       });
-//     })
-//     .catch((error) => {
-//       trump.innerHTML = "Failed to load news.";
-//       console.error(error);
-//     });
-
-    // //business news
-    // fetch("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8404669fbb954e95bd7aace3abb30db0", requestOptions)
-    // .then((response) => response.json())
-    // .then((data) => {
-    //   document.getElementById("business").innerHTML = "Business News (" + data.articles.length + " articles)";
-    //   data.articles.forEach(article => {
-    //     document.getElementById("business").innerHTML += ` <div> <li>
-    //       <img src="${article.urlToImage || ''}" alt="Image" />
-    //       <li><a href="${article.url}" target="_blank">${article.title}</a></li>
-    //       <p>${article.description || ''}</p>
-    //     </li> </div>`; ;
-    //   });
-    // })
-    // .catch((error) => {
-    //   document.getElementById("business").innerHTML = "Failed to load news.";
-    //   console.error(error);
-    // }); 
-
-    // //sports news
-    //   fetch("https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=8404669fbb954e95bd7aace3abb30db0", requestOptions)
-    // .then((response) => response.json())
-    // .then((data) => { 
-    //   document.getElementById("sports").innerHTML = "Sports News (" + data.articles.length + " articles)";
-    //   data.articles.forEach(article => {
-    //     document.getElementById("sports").innerHTML += ` <div> <li> 
-    //       <img src="${article.urlToImage || ''}" alt="Image" />
-    //       <li><a href="${article.url}" target="_blank">${article.title}</a></li>
-    //       <p>${article.description || ''}</p>
-    //     </li> </div>`; ;
-    //   });
-    // } )
-    // .catch((error) => {
-    //   document.getElementById("sports").innerHTML = "Failed to load news.";
-    //   console.error(error);
-    // });
-    //   //technology news
-    //  fetch("https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=8404669fbb954e95bd7aace3abb30db0", requestOptions)
-    // .then((response) => response.json())
-    // .then((data) => {
-    //   document.getElementById("technology").innerHTML = "Technology News (" + data.articles.length + " articles)";
-    //   data.articles.forEach(article => {
-    //     document.getElementById("technology").innerHTML += ` <div> <li>     
-    //       <img src="${article.urlToImage || ''}" alt="Image" />
-    //       <li><a href="${article.url}" target="_blank">${article.title}</a></li>
-    //       <p>${article.description || ''}</p>
-    //     </li> </div>`; ;
-    //   });
-    // } )
-    // .catch((error) => {
-    //   document.getElementById("technology").innerHTML = "Failed to load news.";
-    //   console.error(error);
-    // });
-showNews();
 
 async function filterByUser() {
     if (userChoose == "") {
@@ -222,12 +164,10 @@ function pagination(pageNumber) {
 }
 
 
-
-
 // function defaultNews() {
 //     searchInput.value = "";
 //     showNews(userChoose, currentPage);
 //     searchButton.addEventListener("click", filterByUser);
 // }
 
-// defaultNews()
+
