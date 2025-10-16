@@ -80,9 +80,6 @@ button.addEventListener("click", async function() {
   newsDiv.innerHTML = "";
   console.log(query);
   showNews();
-  .catch((error) => {
-    document.getElementById("businessID").innerHTML = "Failed to load news.";
-    console.error(error);
 });
 
 
