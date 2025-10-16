@@ -1,4 +1,4 @@
-var apiKey = "";
+var apiKey = "8404669fbb954e95bd7aace3abb30db0";
 var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
 //  `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
 
@@ -39,11 +39,11 @@ async function getNewsData() {
     }
   }
 
-  //default articles on main page 
-function defaultNews(article) {
-  var article = document.createElement()    
-
-}
+//   //default articles on main page 
+// function defaultNews(article) {
+//   var article = document.createElement()    
+    
+// }
   // Creating new articles
 function createNewArticleDiv(article) {
     var articleDiv = document.createElement("div");
