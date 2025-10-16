@@ -59,3 +59,17 @@ h2{
   margin: 0 4px;
   border-radius: 5px;
 }
+/* pseudo-classes styling for validation of search bar -  
+will place a check (tick) next to inputs containing valid values, 
+and a cross next to inputs containing invalid values.*/
+input:invalid ~ span::after {
+  content: "✖";
+  padding-left: 5px;
+  position: absolute;
+}
+
+input:valid ~ span::after {
+  content: "✓";
+  padding-left: 5px;
+  position: absolute;
+}
