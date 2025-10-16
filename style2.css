@@ -1,3 +1,5 @@
+/* TOP-LEVEL INITIALISATION AND GENERAL STYLING */
+
 html {
     --dark-color: black;
     --mid-color: gray;
@@ -16,6 +18,23 @@ html {
     font-weight: 400;
 }
 
+button:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--title-font-family);
+}
+
+img {
+display: block;
+margin-top: 10px;
+border-radius: 8px;
+height: 100px;
+}
+
+/* HEADER STYLING */
+
 header {
     background-color: var(--accent-color);
 }
@@ -31,17 +50,11 @@ nav button {
     color: var(--light-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--title-font-family);
-}
-
-button:hover {
-    text-decoration: underline;
-}
-
 .category-button:hover {
     text-decoration: underline;
 }
+
+/* SEARCH STYLING */
 
 .search {
     display: flex;
@@ -76,12 +89,7 @@ button:hover {
     font-weight: bold;
   }
 
-  img {
-    display: block;
-    margin-top: 10px;
-    border-radius: 8px;
-    height: 100px;
-  }
+/* PAGINATION STYLING */
 
 .pagination {
   display: flex;

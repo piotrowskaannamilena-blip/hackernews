@@ -3,28 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <link
        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
        rel="stylesheet"
     />
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+
     <link rel="stylesheet" href="style2.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <!-- fonts link News Cycle -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <!-- font link Cabin Sketch -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=News+Cycle:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
     <title>Hacker News</title>
   </head>
   <body>
@@ -71,9 +74,7 @@
           ><h5>Technology</h5></button>
       </nav>
     </header>
-
     <main>
-      
       <section class="search pt-5">
         <h1>Search News</h1>
         <div id="search-div">
@@ -83,11 +84,9 @@
           </div>
         </div>
       </section>
-
       <section class="news-section">
         <div id="news-container-div"></div>
       </section>
-
       <ul class="pagination">
         <li><button onClick="pagination('0')">&laquo;</button></li>
         <li><button onClick="pagination(1)">1</button></li>
@@ -103,7 +102,6 @@
         <li><button onClick="pagination('11')">&raquo;</button></li>
       </ul>
     </main>
-
     <script src="script.js"></script>
   </body>
 </html>
