@@ -1,4 +1,4 @@
-var apiKey = "8404669fbb954e95bd7aace3abb30db0";
+var apiKey = "";
 var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
 //  `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
 
@@ -80,6 +80,9 @@ button.addEventListener("click", async function() {
   newsDiv.innerHTML = "";
   console.log(query);
   showNews();
+  .catch((error) => {
+    document.getElementById("businessID").innerHTML = "Failed to load news.";
+    console.error(error);
 });
 
 
