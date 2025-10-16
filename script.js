@@ -1,37 +1,23 @@
-var apiKey = "";
-var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
-//  `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
+// GLOBAL DECLARATIONS AND DEFINITIONS
 
-var newsDiv=document.getElementById("news-container-div");
+const apiKey = "";
+const newsDiv=document.getElementById("news-container-div");
+const searchButton = document.getElementById("search-button");
+const searchInput = document.getElementById("search-input");
+
 var userChoose = 'apple';
+var currentPage = '1';
 
-// Trigger a Button Click on Enter
-// Get the input field
-var input = document.getElementById("search-input");
+// CORE FUNCTIONALITY
 
-// Execute a function when the user presses a key on the keyboard
-input.addEventListener("keypress", function(event) {
-  // If the user presses the "Enter" key on the keyboard
-  if (event.key === "Enter") {
-    // Cancel the default action, if needed
-    event.preventDefault();
-    // Trigger the button element with a click
-    document.getElementById("search-button").click();
-  }
-});
+async function showNews(userChoose, page) {
+    let articles = await getNewsData(apiKey, userChoose, page);
+    articles.forEach(article => createNewArticleDiv(article));
+};
 
-// Validation For Empty Inputs
-function validateForm() {
-  var x = document.innerHTML["search-input"]["text"].value;
-  if (x == "") {
-    alert("Type to search for something");
-    return false;
-  }
-}
-
-async function getNewsData() {
+async function getNewsData(apiKey, userChoose, page) {
     try {
-        let response = await fetch(url);
+        let response = await fetch(`https://newsapi.org/v2/everything?q=${userChoose}&pageSize=10&page=${page}&sortBy=popularity&apiKey=${apiKey}`);
         let data = await response.json();
         return data.articles;
     } catch (error) {
@@ -39,117 +25,93 @@ async function getNewsData() {
     }
   }
 
-//   //default articles on main page 
-// function defaultNews(article) {
-//   var article = document.createElement()    
-    
-// }
-  // Creating new articles
 function createNewArticleDiv(article) {
     var articleDiv = document.createElement("div");
     articleDiv.innerHTML =
-        `<h3>${article.title}</h3>
-            <img src="${article.urlToImage}">
-            <p>${article.description}</p>
-            <p>Published :${new Date(article.publishedAt).toLocaleString()}</p>
-            <a href="${article.url}" target="_blank" >Read More </a>`;
+        `<section class="newsarticle card mb-3">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <img src="${article.urlToImage}" class="img-fluid rounded-start" alt="news image">
+            </div>
+            <div class="col-md-6">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">${article.title}</h4>
+                        <p class = "card-text">${article.description}</p>
+                        <p>Published :${new Date(article.publishedAt).toLocaleString()}</p>
+                        <a href="${article.url}" target="_blank" >Read More </a>
+            </div>
+        </section>`;
     newsDiv.appendChild(articleDiv);
 };
 
-async function showNews() {
-    let articles = await getNewsData();
-    articles.forEach(article => createNewArticleDiv(article));
-};
-
-
-var searchButton = document.getElementById("search-button");
-var searchInput = document.getElementById("search-input");  
-searchButton.addEventListener("click", async function() {   
-  var query = searchInput.value;
-  if (!query) return;
-  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "<h2>See news about...</h2>" + `<h3> ${query.toUpperCase()} </h3>` ;
-  console.log(query);
-  showNews();
-});
-// business button search
-var button = document.getElementById("businessID");
-button.addEventListener("click", async function() {
-  var query = "business, company, market, economy, finance";
-  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "";
-  console.log(query);
-  showNews();
-});
-
-
-var button = document.getElementById("entertainmentID");
-button.addEventListener("click", async function() {
-  var query = "entertainment, art, culture, movie";
-  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "";
-  console.log(query);
-  showNews();
-});
-
-var button = document.getElementById("musicID");    
-button.addEventListener("click", async function() {
-  var query = "music , songs, albums, artists, bands, concerts";
-  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "";
-  console.log(query);
-  showNews();
-});
-
-var button = document.getElementById("healthID");   
-button.addEventListener("click", async function() {
-  var query = "health, medicine, fitness, wellness, covid";
-  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "";
-  console.log(query);
-  showNews();
-});
-
-
-var button = document.getElementById("scienceID");
-button.addEventListener("click", async function() {
-  var query = "science";
-  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "";
-  console.log(query);
-  showNews();
-});
-
-
-var button = document.getElementById("sportID");    
-button.addEventListener("click", async function() { 
-  var query = "sport";
-  // var query = "sports, football, cricket, tennis, soccer, basketball, baseball, olympics";
-  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "";
-  console.log(query);
-  showNews();
-});
-
-var button = document.getElementById("technologyID");  
-button.addEventListener("click", async function() {
-  var query = "AI, robotics";   
-  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = "";
-  console.log(query);
-  showNews();
-});
+// USER SEARCH
 
 async function filterByUser() {
     if (userChoose == "") {
         alert("Please enter what you would like to search");
         return
     }
-    currentPage = 1
-    newsDiv.innerHTML = "";
+    currentPage = 1;
     userChoose = searchInput.value.trim();
+    newsDiv.innerHTML = `<h3>${userChoose.toUpperCase()} NEWS</h3>`;
     await showNews(userChoose, currentPage);
 }
+
+// CATEGORY SEARCH
+
+var button = document.getElementById("businessID");
+button.addEventListener("click", async function() {
+  var query = "business, company, market, economy, finance";
+  newsDiv.innerHTML = `<h3>${"business".toUpperCase()} NEWS</h3>`;
+
+  showNews(query, 1);
+});
+
+var button = document.getElementById("entertainmentID");
+button.addEventListener("click", async function() {
+  var query = "entertainment, art, culture, movie";
+  newsDiv.innerHTML = `<h3>${"entertainment".toUpperCase()} NEWS</h3>`;
+  showNews(query, 1);
+});
+
+var button = document.getElementById("musicID");    
+button.addEventListener("click", async function() {
+  var query = "music , songs, albums, artists, bands, concerts";
+  newsDiv.innerHTML = `<h3>${"music".toUpperCase()} NEWS</h3>`;
+  showNews(query, 1);
+});
+
+var button = document.getElementById("healthID");   
+button.addEventListener("click", async function() {
+  var query = "health, medicine, fitness, wellness, covid";
+  newsDiv.innerHTML = `<h3>${"health".toUpperCase()} NEWS</h3>`;
+  showNews(query, 1);
+});
+
+var button = document.getElementById("scienceID");
+button.addEventListener("click", async function() {
+  var query = "science";
+  newsDiv.innerHTML = `<h3>${"science".toUpperCase()} NEWS</h3>`;
+  showNews(query, 1);
+});
+
+var button = document.getElementById("sportID");    
+button.addEventListener("click", async function() { 
+  var query = "sport";
+  // var query = "sports, football, cricket, tennis, soccer, basketball, baseball, olympics";
+  url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${apiKey}`;
+  newsDiv.innerHTML = `<h3>${"sport".toUpperCase()} NEWS</h3>`;
+  showNews(query, 1);
+});
+
+var button = document.getElementById("technologyID");  
+button.addEventListener("click", async function() {
+  var query = "technology, gadgets, apps, software, hardware, AI, robotics";   
+  newsDiv.innerHTML = `<h3>${"technology".toUpperCase()} NEWS</h3>`;
+  showNews(query, 1);
+});
+
+// PAGE SELECTION
 
 function pagination(pageNumber) {
     newsDiv.innerHTML = "";
@@ -163,11 +125,12 @@ function pagination(pageNumber) {
     showNews(userChoose, currentPage);
 }
 
+// PAGE INITIALISATION
 
-// function defaultNews() {
-//     searchInput.value = "";
-//     showNews(userChoose, currentPage);
-//     searchButton.addEventListener("click", filterByUser);
-// }
+function defaultNews() {
+    searchInput.value = "";
+    showNews(userChoose, currentPage);
+    searchButton.addEventListener("click", filterByUser);
+}
 
-
+defaultNews()
