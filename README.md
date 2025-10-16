@@ -13,7 +13,17 @@ Searching and retrieving live articles from all over the web. It can help you an
 - Current affairs
 - Politics
 - New technologies
-- 
+- Trump
+
+Categories buttons working for 
+- business
+- entertainment
+- music
+- health
+- science 
+- sport
+- technology and AI
+
 
 Can be searched for articles with any combination of the following criteria:
 
