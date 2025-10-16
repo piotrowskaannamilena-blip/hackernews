@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link
+       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+       rel="stylesheet"
+    />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="style2.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <!-- fonts link News Cycle -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,21 +28,64 @@
   </head>
   <body>
     <header>
-      <h2>HACKER NEWS</h2>
+      <div id="title" class="pl-3 pt-3">
+      <h1>HACKER NEWS</h1>
+      </div>
+      <nav class="navbar pl-3">
+          <button
+            class="nav-link p-0 category-button"             id="businessID"
+            data-category="business"
+            onClick="searchByCategory('business')"
+            >
+            <h5>Business</h5>
+          </button>
+          <button
+            class="nav-link p-0 category-button"
+            id="entertainmentID"
+            data-category="entertainment"
+            onClick="searchByCategory('entertainment')"
+          >
+            <h5>Entertainment</h5></button>
+          <button class="nav-link p-0 category-button"
+            id="healthID"
+            data-category="health"
+            onClick="searchByCategory('health')"
+          >
+            <h5>Health</h5></button>
+          <button class="nav-link p-0 category-button"
+            id="scienceID"
+            data-category="science"
+            onClick="searchByCategory('science')"
+          >
+            <h5>Science</h5></button>
+          <button class="nav-link p-0 category-button"
+            id="sportID"
+            data-category="sport"
+            onClick="searchByCategory('sport')"
+          >
+            <h5>Sport</h5></button>
+          <button class="nav-link p-0 category-button"
+            id="technologyID"
+            data-category="technology"
+            onClick="searchByCategory('technology')"
+          >
+            <h5>Technology</h5></button>
+      </nav>
     </header>
 
     <main>
-      <section class="search">
+      
+      <section class="search pt-5">
         <h1>Search News</h1>
         <div id="search-div">
-          <label for="search-input">What would you like to search</label>
-          <div class="input-button-div">
+
+          <div class="input-button-div pb-5">
             <input type="text" id="search-input" placeholder="Enter a word" />
             <button id="search-button">Search</button>
           </div>
         </div>
       </section>
-
+<!--
       <div id="categories">
         <nav id="categoriesData" class="categories">
           <button
@@ -89,6 +138,7 @@
           </button>
         </nav>
       </div>
+    -->
 
       <section class="news-section">
         <div id="news-container-div"></div>

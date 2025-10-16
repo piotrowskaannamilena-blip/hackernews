@@ -1,4 +1,4 @@
-var apiKey = "";
+var apiKey = "F50912309e8144bdab3e20f15da4042b";
 var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
 var newsDiv=document.getElementById("news-container-div");
 
