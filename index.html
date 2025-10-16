@@ -3,105 +3,93 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link
+       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+       rel="stylesheet"
+    />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+
+    <link rel="stylesheet" href="style2.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <!-- fonts link News Cycle -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <!-- font link Cabin Sketch -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=News+Cycle:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>Hackers News</title>
+
+    <title>Hacker News</title>
   </head>
   <body>
     <header>
-      <h2>HACKER NEWS</h2>
+      <div id="title" class="pl-3 pt-3">
+      <h1>HACKER NEWS</h1>
+      </div>
+      <nav class="navbar pl-3">
+          <button
+            class="nav-link p-0 category-button"
+            id="businessID"
+            data-category="business"
+          ><h5>Business</h5>
+          </button>
+          <button
+            class="nav-link p-0 category-button"
+            id="entertainmentID"
+            data-category="entertainment"
+          ><h5>Entertainment</h5></button>
+          <button
+            class="nav-link p-0 category-button"
+            id="musicID"
+            data-category="music"
+          ><h5>Music</h5></button>
+          <button
+            class="nav-link p-0 category-button"
+            id="healthID"
+            data-category="health"
+          ><h5>Health</h5></button>
+          <button
+            class="nav-link p-0 category-button"
+            id="scienceID"
+            data-category="science"
+          ><h5>Science</h5></button>
+          <button
+            class="nav-link p-0 category-button"
+            id="sportID"
+            data-category="sport"
+          ><h5>Sport</h5></button>
+          <button
+            class="nav-link p-0 category-button"
+            id="technologyID"
+            data-category="technology"
+          ><h5>Technology</h5></button>
+      </nav>
     </header>
 
     <main>
-      <section class="search">
+      <section class="search pt-5">
         <h1>Search News</h1>
         <div id="search-div">
-          <label for="search-input">What would you like to search</label>
-          <div class="input-button-div">
+          <div class="input-button-div pb-5">
             <input type="text" id="search-input" placeholder="Enter a word" />
             <button id="search-button">Search</button>
           </div>
         </div>
-         <span class="validity"></span>
       </section>
-
-      <div id="categories">
-        <nav id="categoriesData" class="categories">
-          <button
-            class="category-button"
-            id="businessID"
-            data-category="business"
-           
-          >
-            Business
-          </button>
-          <button
-            class="category-button"
-            id="entertainmentID"
-            data-category="entertainment"
-            
-          >
-            Entertainment
-            </button>
-            <button
-            class="category-button"
-            id="musicID"
-            data-category="music"
-            
-          >
-            Music
-          </button>
-          <button
-            class="category-button"
-            id="healthID"
-            data-category="health"
-            
-          >
-            Health
-          </button>
-          <button
-            class="category-button"
-            id="scienceID"
-            data-category="science"
-          >
-            Science
-          </button>
-          <button
-            class="category-button"
-            id="sportID"
-            data-category="sport"
-            
-          >
-            Sport
-          </button>
-          <button
-            class="category-button"
-            id="technologyID"
-            data-category="technology"
-           
-          >
-            Technology
-          </button>
-        </nav>
-      </div>
 
       <section class="news-section">
         <div id="news-container-div"></div>
       </section>
-
       <ul class="pagination">
         <li><button onClick="pagination('0')">&laquo;</button></li>
         <li><button onClick="pagination(1)">1</button></li>
@@ -117,7 +105,6 @@
         <li><button onClick="pagination('11')">&raquo;</button></li>
       </ul>
     </main>
-
     <script src="script.js"></script>
   </body>
 </html>
