@@ -16,9 +16,7 @@ html {
 }
 
 header {
-    background-color: var(--accent-color);
-    color: var(--accent-color);
-    font-family: var(--logo-font-family);
+    background-color: var(--dark-color);
 }
 
 #title h1 {
@@ -28,12 +26,20 @@ header {
 
 nav button {
     border: none;
-    background-color: var(--accent-color);
+    background-color: var(--dark-color);
     color: var(--light-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--title-font-family);
+}
+
+button:hover {
+    text-decoration: underline;
+}
+
+.category-button:hover {
+    text-decoration: underline;
 }
 
 .search {
@@ -64,6 +70,9 @@ h1, h2, h3, h4, h5, h6 {
 #search-button {
     padding: 8px 16px;
     font-size: 16px;
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    font-weight: bold
   }
 
   img {
@@ -88,4 +97,8 @@ h1, h2, h3, h4, h5, h6 {
   color: black;
   margin: 0 4px;
   border-radius: 5px;
+}
+
+.pagination li:hover {
+    text-decoration: underline;
 }
