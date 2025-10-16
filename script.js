@@ -1,4 +1,6 @@
-var apiKey = "F50912309e8144bdab3e20f15da4042b";
+// GLOBAL DECLARATIONS AND DEFINITIONS
+
+var apiKey = "";
 var url = `https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=${apiKey}`;
 var newsDiv=document.getElementById("news-container-div");
 var userChoose = 'apple';
@@ -41,19 +43,8 @@ async function showNews(userChoose, page) {
 };
 
 
-/*
-searchButton.addEventListener("click", async function() {   
-  query = searchInput.value;
-  if (!query) return;
-  userChoose = query;
-  url = `https://newsapi.org/v2/everything?q=${userChoose}&sortBy=popularity&apiKey=${apiKey}`;
-  newsDiv.innerHTML = `<h3>${userChoose.toUpperCase()} NEWS</h3>`;
-  console.log(userChoose);
-  showNews(userChoose, 1);
-});
-*/
+// CATEGORY SEARCH
 
-// business button search
 var button = document.getElementById("businessID");
 button.addEventListener("click", async function() {
   var query = "business, company, market, economy, finance";
