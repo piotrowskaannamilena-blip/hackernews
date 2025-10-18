@@ -37,3 +37,13 @@ Categories buttons working for
 - science
 - sport
 - technology and AI
+
+LINKS
+
+The GitHub repository is at:
+
+https://github.com/piotrowskaannamilena-blip/hackernews/
+
+The GitHub Pages site is at:
+
+https://piotrowskaannamilena-blip.github.io/hackernews/
