@@ -1,6 +1,6 @@
 // GLOBAL DECLARATIONS AND DEFINITIONS
 
-const apiKey = "";
+const apiKey = "F50912309e8144bdab3e20f15da4042b";
 const newsDiv=document.getElementById("news-container-div");
 const searchButton = document.getElementById("search-button");
 const searchInput = document.getElementById("search-input");
@@ -47,12 +47,12 @@ function createNewArticleDiv(article) {
 // USER SEARCH
 
 async function filterByUser() {
+    currentPage = 1;
+    userChoose = searchInput.value.trim();
     if (userChoose == "") {
         alert("Please enter what you would like to search");
         return
     }
-    currentPage = 1;
-    userChoose = searchInput.value.trim();
     newsDiv.innerHTML = `<h3>${userChoose.toUpperCase()} NEWS</h3>`;
     await showNews(userChoose, currentPage);
 }
