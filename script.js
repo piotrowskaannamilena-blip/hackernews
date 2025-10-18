@@ -1,6 +1,6 @@
 // GLOBAL DECLARATIONS AND DEFINITIONS
 
-const apiKey = "F50912309e8144bdab3e20f15da4042b";
+const apiKey = "b8a6c701b1b6482cacf0e45294fb4d74";
 const newsDiv=document.getElementById("news-container-div");
 const searchButton = document.getElementById("search-button");
 const searchInput = document.getElementById("search-input");

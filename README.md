@@ -11,6 +11,8 @@ Installation
 5-Paste your API key into the script.js file, replacing the line that defines var apiKey.
 6-Open the index.html file in your web browser.
 
+(Currently there is a working api installed, so the Github Pages site should function out of the box: )
+
 Collaborated by 3 team member with focus on website functionality, GitHub merged using 3 different branches, isn't it beautiful? Let us introduce you to ...
 
 Hacker News is showing news results from more than 70 sources. Uses data from News API https://newsapi.org/
